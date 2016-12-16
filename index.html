@@ -145,6 +145,59 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js函数节流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/16/js函数节流/">js函数节流</a>
+    </h1>
+  
+
+        <a href="/2016/12/16/js函数节流/" class="archive-article-date">
+  	<time datetime="2016-12-16T07:54:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-16</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>所谓函数节流，就是避免函数频繁触发，占用系统资源；</p>
+<p>###应用场景：</p>
+<p>1.即时搜索，触发change input keyup事件；<br>2.scroll滚动事件；<br>3.mouseover事件</p>
+<p>先来看一个栗子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.scroll=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log($(<span class="built_in">window</span>).scrollTop());</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>大家猜猜运行这段代码会怎样<br><img src="public/img/QQ截图20161216163114.png" alt="Alt scroll1"><br>这样鼠标每滚动一次就打印滚动条距离窗口顶部的高度<br>如果我们在滚动后一段时间内触发滚动事件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> scrollTimer;</div><div class="line"><span class="built_in">window</span>.onscroll=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    clearTimeout(scrollTimer);</div><div class="line">    scrollTimer=setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log($(<span class="built_in">window</span>).scrollTop());</div><div class="line">    &#125;,<span class="number">1000</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/16/js函数节流/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-learn-closure" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

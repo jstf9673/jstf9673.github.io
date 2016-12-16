@@ -6,14 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://jstf9673.github.io">
-  <title>Archives: 2016 | _zoz_&#39;s blog</title>
+  <title>js函数节流 | _zoz_&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="_zoz_'s blog">
-<meta property="og:url" content="https://jstf9673.github.io/archives/2016/index.html">
+  <meta name="description" content="所谓函数节流，就是避免函数频繁触发，占用系统资源；
+###应用场景：
+1.即时搜索，触发change input keyup事件；2.scroll滚动事件；3.mouseover事件
+先来看一个栗子123window.scroll=function()&amp;#123;    console.log($(window).scrollTop());&amp;#125;
+大家猜猜运行这段代码会怎样这样鼠标每滚动一次">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js函数节流">
+<meta property="og:url" content="https://jstf9673.github.io/2016/12/16/js函数节流/index.html">
 <meta property="og:site_name" content="_zoz_'s blog">
+<meta property="og:description" content="所谓函数节流，就是避免函数频繁触发，占用系统资源；
+###应用场景：
+1.即时搜索，触发change input keyup事件；2.scroll滚动事件；3.mouseover事件
+先来看一个栗子123window.scroll=function()&amp;#123;    console.log($(window).scrollTop());&amp;#125;
+大家猜猜运行这段代码会怎样这样鼠标每滚动一次">
+<meta property="og:image" content="https://jstf9673.github.io/public/img/QQ截图20161216163114.png">
+<meta property="og:updated_time" content="2016-12-16T09:25:14.836Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="_zoz_'s blog">
+<meta name="twitter:title" content="js函数节流">
+<meta name="twitter:description" content="所谓函数节流，就是避免函数频繁触发，占用系统资源；
+###应用场景：
+1.即时搜索，触发change input keyup事件；2.scroll滚动事件；3.mouseover事件
+先来看一个栗子123window.scroll=function()&amp;#123;    console.log($(window).scrollTop());&amp;#125;
+大家猜猜运行这段代码会怎样这样鼠标每滚动一次">
+<meta name="twitter:image" content="https://jstf9673.github.io/public/img/QQ截图20161216163114.png">
   
     <link rel="alternative" href="/atom.xml" title="_zoz_&#39;s blog" type="application/atom+xml">
   
@@ -143,103 +161,156 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-js函数节流" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      js函数节流
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/16/js函数节流/" class="archive-article-date">
+
+        <a href="/2016/12/16/js函数节流/" class="archive-article-date">
   	<time datetime="2016-12-16T07:54:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-16</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/16/js函数节流/">js函数节流</a>
-    </h1>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>所谓函数节流，就是避免函数频繁触发，占用系统资源；</p>
+<p>###应用场景：</p>
+<p>1.即时搜索，触发change input keyup事件；<br>2.scroll滚动事件；<br>3.mouseover事件</p>
+<p>先来看一个栗子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.scroll=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log($(<span class="built_in">window</span>).scrollTop());</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>大家猜猜运行这段代码会怎样<br><img src="public/img/QQ截图20161216163114.png" alt="Alt scroll1"><br>这样鼠标每滚动一次就打印滚动条距离窗口顶部的高度<br>如果我们在滚动后一段时间内触发滚动事件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> scrollTimer;</div><div class="line"><span class="built_in">window</span>.onscroll=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    clearTimeout(scrollTimer);</div><div class="line">    scrollTimer=setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log($(<span class="built_in">window</span>).scrollTop());</div><div class="line">    &#125;,<span class="number">1000</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://jstf9673.github.io/2016/12/16/js函数节流/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/14/learn-closure/" class="archive-article-date">
-  	<time datetime="2016-12-14T10:05:51.682Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/14/learn-closure/">learn closure</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/12/14/learn-closure/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">learn closure</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/14/hello-world/" class="archive-article-date">
-  	<time datetime="2016-12-14T10:04:22.695Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/14/hello-world/">Hello World</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/12/16/js函数节流/" data-title="js函数节流" data-url="https://jstf9673.github.io/2016/12/16/js函数节流/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"jstf9673"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 
           </div>
@@ -262,8 +333,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
