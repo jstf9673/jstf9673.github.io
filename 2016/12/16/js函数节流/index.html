@@ -22,8 +22,8 @@
 1.即时搜索，触发change input keyup事件；2.scroll滚动事件；3.mouseover事件
 先来看一个栗子123window.scroll=function()&amp;#123;    console.log($(window).scrollTop());&amp;#125;
 大家猜猜运行这段代码会怎样这样鼠标每滚动一次">
-<meta property="og:image" content="https://jstf9673.github.io/public/img/QQ截图20161216163114.png">
-<meta property="og:updated_time" content="2016-12-16T09:25:14.836Z">
+<meta property="og:image" content="https://jstf9673.github.io/img/QQ截图20161216173721.png">
+<meta property="og:updated_time" content="2016-12-16T09:50:08.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js函数节流">
 <meta name="twitter:description" content="所谓函数节流，就是避免函数频繁触发，占用系统资源；
@@ -31,7 +31,7 @@
 1.即时搜索，触发change input keyup事件；2.scroll滚动事件；3.mouseover事件
 先来看一个栗子123window.scroll=function()&amp;#123;    console.log($(window).scrollTop());&amp;#125;
 大家猜猜运行这段代码会怎样这样鼠标每滚动一次">
-<meta name="twitter:image" content="https://jstf9673.github.io/public/img/QQ截图20161216163114.png">
+<meta name="twitter:image" content="https://jstf9673.github.io/img/QQ截图20161216173721.png">
   
     <link rel="alternative" href="/atom.xml" title="_zoz_&#39;s blog" type="application/atom+xml">
   
@@ -183,7 +183,8 @@
 <p>###应用场景：</p>
 <p>1.即时搜索，触发change input keyup事件；<br>2.scroll滚动事件；<br>3.mouseover事件</p>
 <p>先来看一个栗子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.scroll=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log($(<span class="built_in">window</span>).scrollTop());</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>大家猜猜运行这段代码会怎样<br><img src="public/img/QQ截图20161216163114.png" alt="Alt scroll1"><br>这样鼠标每滚动一次就打印滚动条距离窗口顶部的高度<br>如果我们在滚动后一段时间内触发滚动事件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> scrollTimer;</div><div class="line"><span class="built_in">window</span>.onscroll=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    clearTimeout(scrollTimer);</div><div class="line">    scrollTimer=setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log($(<span class="built_in">window</span>).scrollTop());</div><div class="line">    &#125;,<span class="number">1000</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>大家猜猜运行这段代码会怎样<br><img src="img/QQ截图20161216173721.png" alt="Alt scroll1"><br>这样鼠标每滚动一次就打印滚动条距离窗口顶部的高度<br>如果我们在滚动后一段时间内触发滚动事件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> scrollTimer;</div><div class="line"><span class="built_in">window</span>.onscroll=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    clearTimeout(scrollTimer);</div><div class="line">    scrollTimer=setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log($(<span class="built_in">window</span>).scrollTop());</div><div class="line">    &#125;,<span class="number">1000</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>下面是我写的一个关于即时查询搜索结果的小 <a href="https://jstf9673.github.io/pro_test/demo/js/debounce.html">demo</a><br>在Google chrome的调试模式下查看</p>
 
       
 
