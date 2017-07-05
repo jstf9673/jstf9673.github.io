@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://img.alicdn.com/tps/TB1HPQwIpXXXXXgXXXXXXXXXXXX.jpg">
 <meta property="og:image" content="https://img.alicdn.com/tps/TB1O3ItIpXXXXXtXFXXXXXXXXXX.jpg">
 <meta property="og:image" content="https://img.alicdn.com/tps/TB1hR.SIpXXXXaFXXXXXXXXXXXX.png">
-<meta property="og:updated_time" content="2017-07-05T05:56:28.661Z">
+<meta property="og:updated_time" content="2017-07-05T06:12:18.188Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端高清、多屏适配方案">
 <meta name="twitter:description" content="背景开发移动端H5页面面对不同分辨率的手机面对不同屏幕尺寸的手机
@@ -190,7 +190,7 @@
 <h3 id="视觉稿"><a href="#视觉稿" class="headerlink" title="视觉稿"></a>视觉稿</h3><p>在前端开发之前，视觉MM会给我们一个psd文件，称之为视觉稿。</p>
 <p>对于移动端开发而言，为了做到页面高清的效果，视觉稿的规范往往会遵循以下两点：</p>
 <p>首先，选取一款手机的屏幕宽高作为基准(以前是iphone4的<code>320×480</code>，现在更多的是iphone6的<code>375×667</code>)。<br>对于<code>retina</code>屏幕(如: <code>dpr=2</code>)，为了达到高清效果，视觉稿的画布大小会是基准的2倍，也就是说像素点个数是原来的4倍（对iphone6而言：原先的<code>375×667</code>，就会变成<code>750×1334</code>）。<br>问题：</p>
-<p>对于<code>dpr=2</code>的手机，为什么画布大小<code>×2</code>，就可以解决高清问题？<br>对于2倍大小的视觉稿，在具体的css编码中如何还原每一个区块的真实宽高(也就是布局问题)?<br>带着问题，往下看…</p>
+<p>对于<code>dpr=2</code>的手机，为什么画布大小<code>×2</code>，就可以解决高清问题？<br>对于2倍大小的视觉稿，在具体的css编码中如何还原每一个区块的真实宽高(也就是布局问题)?<br>带着问题，往下看…<br><a id="more"></a></p>
 <h3 id="一些概念"><a href="#一些概念" class="headerlink" title="一些概念"></a>一些概念</h3><p>在进行具体的分析之前，首先得知道下面这些关键性基本概念(术语)。</p>
 <p><strong>物理像素(physical pixel)</strong></p>
 <p>一个物理像素是显示器(手机屏幕)上最小的物理显示单元，在操作系统的调度下，每一个设备像素都有自己的颜色值和亮度值。</p>
@@ -373,7 +373,7 @@
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mobile-rem-viewpoint-前端开发/">mobile rem viewpoint 前端开发</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mobile/">mobile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rem/">rem</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/viewpoint/">viewpoint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端开发/">前端开发</a></li></ul>
 	</div>
 
       
@@ -528,6 +528,22 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)">mobile rem viewpoint 前端开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">mobile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">rem</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">viewpoint</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">前端开发</a>
               </li>
             
             <div class="clearfix"></div>
